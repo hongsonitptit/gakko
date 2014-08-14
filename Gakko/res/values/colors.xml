@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg_title_action_bar">#3a4458</color>
+    <color name="bg_button_login">#1aa1b8</color>
+    <color name="bg_rule">#b3b3b3</color>
+    <color name="bg_layout_city_notify">#d3e5fc</color>
+    <color name="bg_layout_chat">#e0caf9</color>
+    <color name="bg_layout_school_notify">#ffd9d3</color>
+    <color name="bg_layout_ads">#e0edd3</color>
+    <color name="bg_tv_nb_people">#4bc1d2</color>
+
+</resources>

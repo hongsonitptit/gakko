@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.gakko.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="1"
+        android:visible="true"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_settings1"
+        android:title="2"
+        android:visible="true"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_settings2"
+        android:title="3"
+        android:visible="true"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_settings3"
+        android:title="4"
+        android:visible="true"
+        app:showAsAction="always"/>
+
+</menu>
