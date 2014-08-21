@@ -59,7 +59,8 @@ public class LoginActivity extends ActionBarActivity {
 		TextView titleTextView = (TextView) mViewActionBar
 				.findViewById(R.id.tv_title_action_bar);
 
-		titleTextView.setText("Login");
+		titleTextView.setText(getResources().getString(
+				R.string.tv_login_title_login_screen));
 		rightImageButton.setVisibility(View.INVISIBLE);
 		leftImageButton.setVisibility(View.INVISIBLE);
 

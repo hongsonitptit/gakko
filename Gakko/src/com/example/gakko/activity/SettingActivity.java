@@ -83,7 +83,8 @@ public class SettingActivity extends ActionBarActivity {
 		TextView titleTextView = (TextView) mViewActionBar
 				.findViewById(R.id.tv_title_action_bar);
 
-		titleTextView.setText("Setting");
+		titleTextView.setText(getResources().getString(
+				R.string.title_setting_screen));
 		rightImageButton.setVisibility(View.INVISIBLE);
 		leftImageButton.setOnClickListener(new OnClickListener() {
 

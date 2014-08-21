@@ -79,7 +79,8 @@ public class RuleActivity extends ActionBarActivity {
 		TextView titleTextView = (TextView) mViewActionBar
 				.findViewById(R.id.tv_title_action_bar);
 
-		titleTextView.setText("Rule");
+		titleTextView.setText(getResources().getString(
+				R.string.tv_rule_title_rule_screen));
 		rightImageButton.setVisibility(View.INVISIBLE);
 		leftImageButton.setVisibility(View.INVISIBLE);
 

@@ -1,5 +1,6 @@
 package com.example.gakko.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.audiofx.NoiseSuppressor;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.gakko.R;
 
+@SuppressLint("ResourceAsColor")
 public class HomeActivity extends ActionBarActivity {
 
 	public static final String SHOW_ACTION = "SHOW ACTION";
@@ -100,7 +102,7 @@ public class HomeActivity extends ActionBarActivity {
 		TextView titleTextView = (TextView) mViewActionBar
 				.findViewById(R.id.tv_title_action_bar);
 
-		titleTextView.setText("LOGO (Necol+)");
+		titleTextView.setText("HOME");
 		rightImageButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -110,6 +112,9 @@ public class HomeActivity extends ActionBarActivity {
 				startActivity(intent);
 			}
 		});
+
+		leftImageButton.setImageResource(R.drawable.ic_launcher);
+		leftImageButton.setBackgroundColor(android.R.color.transparent);
 
 	}
 }

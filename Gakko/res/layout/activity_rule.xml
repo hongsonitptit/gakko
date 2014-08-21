@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:text="Check box rule" />
+            android:text="@string/tv_agree_rule_screen" />
 
         <TextView
             android:id="@+id/tv_next_rule"

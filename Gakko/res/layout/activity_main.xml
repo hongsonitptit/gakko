@@ -16,35 +16,53 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/bg_title_action_bar" >
+        android:background="@color/bg_title_action_bar"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_show_activity_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_launcher" />
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_launcher"
+            android:text="@string/tv_notify_from_school_tab"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_show_activity_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_launcher" />
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_launcher"
+            android:text="@string/tv_chat_tab"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_show_activity_school"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_launcher" />
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_launcher"
+            android:text="@string/tv_notify_from_city_tab"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_show_activity_ads"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_launcher" />
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_launcher"
+            android:text="@string/tv_ads_tab"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
     </LinearLayout>
 
 </RelativeLayout>

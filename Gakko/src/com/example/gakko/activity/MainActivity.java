@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -28,10 +29,12 @@ public class MainActivity extends ActionBarActivity {
 	public static final int SHOW_CHAT = 6;
 	public static final int SHOW_CREATE_NEW_ROOM = 7;
 
-	private ImageButton mImageButtonNotifyCity;
-	private ImageButton mImageButtonChat;
-	private ImageButton mImageButtonNotifySchool;
-	private ImageButton mImageButtonAds;
+	private int SHOW_CURRENT;
+
+	private Button mImageButtonNotifyCity;
+	private Button mImageButtonChat;
+	private Button mImageButtonNotifySchool;
+	private Button mImageButtonAds;
 
 	private NotifyCityFragment mNotifyCityFragment;
 	private NotifySchoolFragment mNotifySchoolFragment;
@@ -42,10 +45,10 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		mImageButtonAds = (ImageButton) findViewById(R.id.btn_show_activity_ads);
-		mImageButtonChat = (ImageButton) findViewById(R.id.btn_show_activity_chat);
-		mImageButtonNotifyCity = (ImageButton) findViewById(R.id.btn_show_activity_city);
-		mImageButtonNotifySchool = (ImageButton) findViewById(R.id.btn_show_activity_school);
+		mImageButtonAds = (Button) findViewById(R.id.btn_show_activity_ads);
+		mImageButtonChat = (Button) findViewById(R.id.btn_show_activity_chat);
+		mImageButtonNotifyCity = (Button) findViewById(R.id.btn_show_activity_city);
+		mImageButtonNotifySchool = (Button) findViewById(R.id.btn_show_activity_school);
 
 		mNotifyCityFragment = new NotifyCityFragment();
 		mNotifySchoolFragment = new NotifySchoolFragment();
@@ -57,38 +60,28 @@ public class MainActivity extends ActionBarActivity {
 		mImageButtonAds.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				setupActionBar(SHOW_ADS);
-				getSupportFragmentManager().beginTransaction()
-						.replace(R.id.my_fragment, mAdsFragment).commit();
+				showAds();
 			}
 		});
 
 		mImageButtonChat.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				setupActionBar(SHOW_CHAT);
-				getSupportFragmentManager().beginTransaction()
-						.replace(R.id.my_fragment, mChatFragment).commit();
+				showChat();
 			}
 		});
 
 		mImageButtonNotifyCity.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				setupActionBar(SHOW_NOTIFY_FROM_CITY);
-				getSupportFragmentManager().beginTransaction()
-						.replace(R.id.my_fragment, mNotifyCityFragment)
-						.commit();
+				showNotifyCity();
 			}
 		});
 
 		mImageButtonNotifySchool.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				setupActionBar(SHOW_NOTIFY_FROM_SCHOOL);
-				getSupportFragmentManager().beginTransaction()
-						.replace(R.id.my_fragment, mNotifySchoolFragment)
-						.commit();
+				showNotifySchool();
 			}
 		});
 
@@ -125,6 +118,7 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private void setupActionBar(int type) {
+		SHOW_CURRENT = type;
 		ActionBar mActionBar = getSupportActionBar();
 		mActionBar.setDisplayHomeAsUpEnabled(false);
 		mActionBar.setDisplayShowTitleEnabled(false);
@@ -145,28 +139,27 @@ public class MainActivity extends ActionBarActivity {
 
 		switch (type) {
 		case SHOW_ADS:
-			titleTextView.setText("Advertise");
+			titleTextView.setText(getResources().getString(
+					R.string.tv_ads_home_screen));
 			rightImageButton.setVisibility(View.INVISIBLE);
 			leftImageButton.setVisibility(View.INVISIBLE);
 			break;
 		case SHOW_CHAT:
-			titleTextView.setText("Chat");
+			titleTextView.setText(getResources().getString(
+					R.string.tv_chat_home_screen));
 			rightImageButton.setVisibility(View.VISIBLE);
 			leftImageButton.setVisibility(View.INVISIBLE);
 			rightImageButton.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
-					setupActionBar(SHOW_CREATE_NEW_ROOM);
-					getSupportFragmentManager()
-							.beginTransaction()
-							.replace(R.id.my_fragment,
-									new CreateNewRoomFragment()).commit();
+					showCreateNewRoom();
 				}
 			});
 			break;
 		case SHOW_NOTIFY_FROM_CITY:
-			titleTextView.setText("Notify from city");
+			titleTextView.setText(getResources().getString(
+					R.string.tv_notify_from_city_home_screen));
 			rightImageButton.setVisibility(View.INVISIBLE);
 			leftImageButton.setVisibility(View.INVISIBLE);
 			break;
@@ -178,15 +171,13 @@ public class MainActivity extends ActionBarActivity {
 
 				@Override
 				public void onClick(View v) {
-					setupActionBar(SHOW_NOTIFY_FROM_CITY);
-					getSupportFragmentManager().beginTransaction()
-							.replace(R.id.my_fragment, mNotifyCityFragment)
-							.commit();
+					showNotifyCity();
 				}
 			});
 			break;
 		case SHOW_NOTIFY_FROM_SCHOOL:
-			titleTextView.setText("Notify from school");
+			titleTextView.setText(getResources().getString(
+					R.string.tv_nofity_from_school_home_screen));
 			rightImageButton.setVisibility(View.INVISIBLE);
 			leftImageButton.setVisibility(View.INVISIBLE);
 			break;
@@ -198,25 +189,21 @@ public class MainActivity extends ActionBarActivity {
 
 				@Override
 				public void onClick(View v) {
-					setupActionBar(SHOW_NOTIFY_FROM_SCHOOL);
-					getSupportFragmentManager().beginTransaction()
-							.replace(R.id.my_fragment, mNotifySchoolFragment)
-							.commit();
+					showNotifySchool();
 				}
 			});
 			break;
 
 		case SHOW_CREATE_NEW_ROOM:
-			titleTextView.setText("Create new room");
+			titleTextView.setText(getResources().getString(
+					R.string.title_create_room));
 			rightImageButton.setVisibility(View.INVISIBLE);
 			leftImageButton.setVisibility(View.VISIBLE);
 			leftImageButton.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
-					setupActionBar(SHOW_CHAT);
-					getSupportFragmentManager().beginTransaction()
-							.replace(R.id.my_fragment, mChatFragment).commit();
+					showChat();
 				}
 			});
 			break;
@@ -224,6 +211,30 @@ public class MainActivity extends ActionBarActivity {
 			break;
 		}
 
+	}
+
+	public void showNotifyCity() {
+		setupActionBar(SHOW_NOTIFY_FROM_CITY);
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.my_fragment, mNotifyCityFragment).commit();
+	}
+
+	public void showNotifySchool() {
+		setupActionBar(SHOW_NOTIFY_FROM_SCHOOL);
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.my_fragment, mNotifySchoolFragment).commit();
+	}
+
+	public void showChat() {
+		setupActionBar(SHOW_CHAT);
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.my_fragment, mChatFragment).commit();
+	}
+
+	public void showAds() {
+		setupActionBar(SHOW_ADS);
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.my_fragment, mAdsFragment).commit();
 	}
 
 	public void showDetailNotifyCity() {
@@ -238,6 +249,31 @@ public class MainActivity extends ActionBarActivity {
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.my_fragment, new NotifySchoolDetailFragment())
 				.commit();
+	}
+
+	public void showCreateNewRoom() {
+		setupActionBar(SHOW_CREATE_NEW_ROOM);
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.my_fragment, new CreateNewRoomFragment())
+				.commit();
+	}
+
+	@Override
+	public void onBackPressed() {
+		switch (SHOW_CURRENT) {
+		case SHOW_NOTIFY_FROM_CITY_DETAIL:
+			showNotifyCity();
+			break;
+		case SHOW_NOTIFY_FROM_SCHOOL_DETAIL:
+			showNotifySchool();
+			break;
+		case SHOW_CREATE_NEW_ROOM:
+			showChat();
+			break;
+		default:
+			super.onBackPressed();
+			break;
+		}
 	}
 
 }

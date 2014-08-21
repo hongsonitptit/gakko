@@ -1,8 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Gakko</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Necol</string>
+
+    <!-- Login screen -->
+    <string name="tv_login_title_login_screen">ログイン</string>
+    <string name="tv_ID_login_screen">ID</string>
+    <string name="tv_password_login_screen">パスワード</string>
+
+    <!-- Rule screen -->
+    <string name="tv_rule_title_rule_screen">利用規約</string>
+    <string name="tv_agree_rule_screen">同意する</string>
+
+    <!-- Home screen -->
+    <string name="tv_nofity_from_school_home_screen">学校からの連絡</string>
+    <string name="tv_notify_from_city_home_screen">市役所からのお知らせ</string>
+    <string name="tv_chat_home_screen">コミュニティ</string>
+    <string name="tv_ads_home_screen">広告</string>
+
+    <!-- Tab -->
+    <string name="tv_notify_from_school_tab">学校から</string>
+    <string name="tv_notify_from_city_tab">市役所から</string>
+    <string name="tv_chat_tab">コミュニティ</string>
+    <string name="tv_ads_tab">広告</string>
+
+    <!-- Setting screen -->
+    <string name="title_setting_screen">設定</string>
+    <string name="tv_name_setting_screen">名前</string>
+    <string name="tv_ID_setting_screen">ID</string>
+    <string name="tv_age_setting_screen">年齢</string>
+    <string name="tv_sex_setting_screen">性別</string>
+    <string name="tgbtn_push_notify_setting_screen">プッシュ通知</string>
+    <string name="btn_rule_setting_screen">使用規約</string>
+
+    <!-- Create room screen -->
+    <string name="title_create_room">コミュニティ作成</string>
+    <string name="tv_room_name_create_room">コミュニティ名</string>
+    <string name="tv_symbol_create_room">アイコン</string>
+    <string name="tv_type">区分</string>
+    <string name="tv_publish">公開</string>
+    <string name="tv_invite">招待</string>
+    <string name="tv_main_system">承認制</string>
+    <string name="tv_care_function">注目機能</string>
+    <string name="tv_can_show_top">3分限定でコミュニティ一覧ページで上位表示することができます</string>
+    <string name="tv_do_you_want_join_room">コミュニティに参加しますか。</string>
+
+    <!-- Management member -->
+    <string name="tv_add_new_member"></string>
+    <string name="tv_how_to_room"></string>
+    <string name="tv_add_member"></string>
+    <string name="tv_add"></string>
+    <string name="tv_change_password"></string>
+    <string name="tv_remove_member"></string>
+    <string name="tv_change_icon"></string>
+    <string name="tv_list_member"></string>
+    <string name="tv_registed_member"></string>
 
 </resources>
